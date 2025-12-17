@@ -58,7 +58,7 @@ const App: React.FC = () => {
     setIsLoading(true);
     try {
       const response = await sendChatMessage(sessionId, userMessage, context);
-      
+
       // Update context
       if (response.products) {
         setContext(prev => ({
@@ -115,7 +115,7 @@ const App: React.FC = () => {
       setMessages(prev => [...prev, userMessage]);
 
       const response = await searchByImage(file);
-      
+
       // Update context
       if (response.products) {
         setContext(prev => ({
@@ -187,7 +187,7 @@ const App: React.FC = () => {
           onResetChat={handleResetChat}
           onImportSuccess={() => console.log('Import successful')}
         /> */}
-        
+
         <div className="flex-1 flex flex-col">
           {/* Header */}
           <header className="sticky top-0 z-10 bg-white border-b border-gray-200 px-6 py-4">
@@ -211,8 +211,8 @@ const App: React.FC = () => {
             <div className="h-full flex flex-col">
               {/* Chat Interface */}
               <div className="flex-1 overflow-y-auto">
-                <ChatInterface 
-                  messages={messages} 
+                <ChatInterface
+                  messages={messages}
                   onSendMessage={handleSendMessage}
                   isLoading={isLoading}
                 />
@@ -220,17 +220,17 @@ const App: React.FC = () => {
               </div>
 
               {/* Suggested Prompts */}
-              {messages.length > 0 && (
+              {/* {messages.length > 0 && (
                 <div className="border-t border-gray-200 bg-white px-6 py-4">
                   <SuggestedPrompts 
                     prompts={suggestedPrompts} 
                     onSelect={handleSendMessage} 
                   />
                 </div>
-              )}
+              )} */}
 
               {/* Input Area */}
-              <div className="border-t border-gray-200 bg-white px-6 py-4">
+              <div className="border-t border-gray-200 bg-white px-6 py-4" style={{ 'position': 'absolute', 'bottom': 0, 'width': '100%' }}>
                 <div className="flex space-x-4">
                   <div className="flex-1">
                     <input
